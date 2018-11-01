@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>-->
+    <script src="./vue2.5.17.js"></script>
+</head>
+<body>
+<!--挂载点（div），模板（挂载点内部的内容），Vue实例 之间的关系-->
+<div id="fred">
+   <!--<h2>hello:, {{msg}}</h2>-->
+</div>
+
+<script>
+    new Vue({
+        el:"#fred",
+        template: "<h2>hello:, {{msg}}</h2>",
+        data:{
+            msg:"i am fred!"
+        }
+    })
+</script>
+</body>
+</html>
