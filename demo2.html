@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>-->
+    <script src="./vue2.5.17.js"></script>
+</head>
+<body>
+<div id="fred">
+    <!--插值表达式-->
+    <h2>{{msg}},{{number}}</h2>
+    <h1 v-text="number"></h1>
+    <h1 v-html="number"></h1>
+    <div v-text="content"></div>
+    <div v-html="content"></div>
+
+    <!--事件， v-on:简写@-->
+    <div v-on:click="handleClick">{{src}}</div>
+    <div @click="handleClick">
+        <h2 v-text="src"></h2>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: "#fred",
+
+        data: {
+            msg: "i am fred!",
+            number: 123,
+            content: "<h1>33333</h1>",
+            src: "点击hello变world"
+        },
+        <!--绑定方法-->
+        methods: {
+            handleClick: function () {
+                //alert(123);
+                this.src = "world";
+            }
+        }
+    })
+</script>
+</body>
+</html>
