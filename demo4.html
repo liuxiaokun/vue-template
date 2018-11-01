@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>-->
+    <script src="./vue2.5.17.js"></script>
+</head>
+<body>
+<div id="fred">
+    <!--属性绑定，v-bind: 缩写：-->
+    <div v-bind:title="title">hello world</div>
+    <div :title="title">hello world</div>
+
+    <!--v-model实现双向绑定, input改变，div内容也应该变-->
+    <input v-model="content"/>
+    <div>{{content}}</div>
+</div>
+
+<script>
+    new Vue({
+        el: "#fred",
+
+        data: {
+            title: "this is hello world",
+            content:"this is content"
+        }
+    })
+</script>
+</body>
+</html>
