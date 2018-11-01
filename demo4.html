@@ -8,13 +8,14 @@
 </head>
 <body>
 <div id="fred">
-    <!--属性绑定，v-bind: 缩写：-->
-    <div v-bind:title="title">hello world</div>
-    <div :title="title">hello world</div>
+    姓：<input v-model="firstName">
+    名：<input v-model="lastName">
 
-    <!--v-model实现双向绑定, input改变，div内容也应该变-->
-    <input v-model="content"/>
-    <div>{{content}}</div>
+    <!--<div v-text="firstName +' ' + lastName"></div>-->
+    <div>{{fullName}}</div>
+
+    <div>{{count}}</div>
+
 </div>
 
 <script>
@@ -22,8 +23,29 @@
         el: "#fred",
 
         data: {
-            title: "this is hello world",
-            content:"this is content"
+            firstName: '',
+            lastName:'',
+            count:0
+        },
+        <!--计算属性-->
+        computed:{
+            fullName: function(){
+                return this.firstName + ' ' + this.lastName;
+            }
+        },
+
+        watch: {
+            firstName: function () {
+                this.count++;
+            },
+
+            lastName: function () {
+                this.count++;
+            },
+
+            fullName: function() {
+                this.count++;
+            }
         }
     })
 </script>
